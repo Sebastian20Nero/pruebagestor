@@ -1,0 +1,11 @@
+CREATE DATABASE bdgetor2;
+CREATE EXTENSION "uuid-ossp";
+CREATE TABLE public.s_usuario (
+	id_usuario uuid NOT NULL DEFAULT uuid_generate_v4 (),
+	nombre_completo varchar(60) NOT NULL,
+	usuario_imagen varchar(250) NOT NULL DEFAULT 'default.png'::character varying,
+	email varchar(200) NOT NULL,
+	fecha_registro date NOT NULL DEFAULT now(),
+	estado bpchar(1) NOT NULL DEFAULT 'A'::bpchar,
+	CONSTRAINT s_usuario_pkey PRIMARY KEY (id_usuario)
+)
